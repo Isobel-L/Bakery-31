@@ -9,7 +9,10 @@ public:
     Bread();
     virtual ~Bread();
 
+    // Returns the price of this item
     virtual double getPrice();
+
+    // Returns a vector containing the ingredients required to make this item
     virtual std::vector<Ingredient*> getIngredients();
 
 private:

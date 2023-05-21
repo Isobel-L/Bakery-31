@@ -8,6 +8,7 @@ class Flour : public Ingredient {
 public:
     Flour(int quantity = 0);
 
+    // Returns the price of this ingredient
     virtual double getPrice();
 };
 

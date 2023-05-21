@@ -9,6 +9,7 @@ public:
     ChocolateCake();
     virtual ~ChocolateCake();
 
+    // Returns a vector containins the ingredients required to make this item
     virtual std::vector<Ingredient*> getIngredients();
 
 private:

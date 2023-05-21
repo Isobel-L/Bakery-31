@@ -9,9 +9,14 @@ class Order {
 public:
     Order(Customer* customer, BakeryItem* item);
 
+    // Returns the customer who made this order
     Customer* getCustomer();
+
+    // Returns the item the customer ordered
     BakeryItem* getItem();
 
+    // Calculates and returns the amount paid for the item taking into account
+    // the discount for the customer's birthday and whether the customer tips
     double calculatePrice();
 
 private:

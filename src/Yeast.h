@@ -8,6 +8,7 @@ class Yeast : public Ingredient {
 public:
     Yeast(int quantity = 0);
 
+    // Returns the price of this ingredient
     virtual double getPrice();
 };
 

@@ -22,8 +22,6 @@ void Ingredient::buyIngredient(int quantity)
     m_quantity += quantity;
 }
 
-// Returns true if there's enough of the ingredient
-// Returns false if there isn't
 bool Ingredient :: useIngredient(int quantity)
 {
     if (m_quantity < quantity) {

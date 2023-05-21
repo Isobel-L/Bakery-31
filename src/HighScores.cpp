@@ -50,7 +50,7 @@ void HighScores::displayLeaderboard(int numLines)
         // Nothing to display
         return;
     }
-    
+
     std::cout << "Leaderboard\n";
     std::cout << "-----------\n";
 

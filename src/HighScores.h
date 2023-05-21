@@ -12,10 +12,16 @@ class HighScores {
 public:
     HighScores(std::string fileName);
 
+    // Reads the high scores from a file
     void readScores();
+
+    // Writes the high scores to a file
     void writeScores();
 
+    // Adds a new score
     void updateScores(std::string name, double score);
+
+    // Prints the top few scores
     void displayLeaderboard(int numLines);
 
 private:

@@ -11,8 +11,13 @@ public:
     BakeryItem(std::string name);
     virtual ~BakeryItem();
 
+    // Returns the name of this item
     std::string getName();
+
+    // Returns the price of this item
     virtual double getPrice() = 0;
+
+    // Returns a vector containing the ingredients required to make this item
     virtual std::vector<Ingredient*> getIngredients() = 0;
 
 private:

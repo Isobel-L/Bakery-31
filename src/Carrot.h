@@ -8,6 +8,7 @@ class Carrot : public Ingredient {
 public:
     Carrot(int quantity = 0);
 
+    // Returns the price of this ingredient
     virtual double getPrice();
 };
 

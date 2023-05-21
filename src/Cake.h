@@ -8,6 +8,7 @@ class Cake : public BakeryItem {
 public:
     Cake(std::string name);
 
+    // Returns the price of this item
     virtual double getPrice();
 };
 

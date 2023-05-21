@@ -8,6 +8,7 @@ class Sugar : public Ingredient {
 public:
     Sugar(int quantity = 0);
 
+    // Returns the price of this ingredient
     virtual double getPrice();
 };
 
