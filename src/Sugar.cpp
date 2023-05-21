@@ -1,7 +1,7 @@
 #include "Sugar.h"
 
 Sugar::Sugar(int quantity) :
-    Ingredient("Flour", quantity)
+    Ingredient("Sugar", quantity)
 {
 }
 

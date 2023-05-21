@@ -13,7 +13,21 @@ void HighScores::readScores()
     std::ifstream scoreFile(m_fileName);
 
     ScoreData data;
-    while (scoreFile >> data.first >> data.second) {
+    while (scoreFile) {
+        std::getline(scoreFile, data.second);
+        if (data.second.empty()) {
+            // This is the empty line at the end of the file, so we have
+            // finished reading the scores
+            break;
+        }
+
+        scoreFile >> data.first;
+        // scoreFile >> std::ws;
+        // Reading from the file with >> leaves the end of line character in
+        // the stream, so we have to move past it to reach the next line
+        std::string eolChar;
+        std::getline(scoreFile, eolChar);
+
         m_scoreData.push_back(data);
     }
 
@@ -25,7 +39,8 @@ void HighScores::writeScores()
     std::ofstream scoreFile(m_fileName);
 
     for (auto data : m_scoreData) {
-        scoreFile << data.first << " " << data.second << "\n";
+        scoreFile << data.second << "\n";
+        scoreFile << data.first << "\n";
     }
 
     scoreFile.close();
@@ -60,7 +75,7 @@ void HighScores::displayLeaderboard(int numLines)
             continue;
         }
 
-        std::cout << it->second << " $" << it->first << "\n";
+        std::cout << it->second << "  $" << it->first << "\n";
         it++;
     }
 }

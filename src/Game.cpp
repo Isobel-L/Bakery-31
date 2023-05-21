@@ -124,7 +124,8 @@ void Game::run()
     std::cout << "\n";
     std::cout << "Great score! What's your name?\n";
     std::string name;
-    std::cin >> name;
+    std::cin >> std::ws;
+    std::getline(std::cin, name);
     scores.updateScores(name, bakery.getProfit());
 
     std::cout << "\n";
