@@ -1,5 +1,5 @@
-#ifndef CHOCOLATECAKE_H
-#define CHOCOLATECAKE_H
+#ifndef CHOCOLATE_CAKE_H
+#define CHOCOLATE_CAKE_H
 
 #include "Cake.h"
 
@@ -15,4 +15,4 @@ private:
     std::vector<Ingredient*> m_ingredients;
 };
 
-#endif // CHOCOLATECAKE_H
+#endif // CHOCOLATE_CAKE_H

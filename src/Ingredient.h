@@ -8,6 +8,7 @@
 class Ingredient {
 public:
     Ingredient(std::string name, int quantity);
+    virtual ~Ingredient();
 
     void buyIngredient(int quantity);
     bool useIngredient(int quantity);

@@ -5,6 +5,10 @@ BakeryItem::BakeryItem(std::string name) :
 {
 }
 
+BakeryItem::~BakeryItem()
+{
+}
+
 std::string BakeryItem::getName()
 {
     return m_name;

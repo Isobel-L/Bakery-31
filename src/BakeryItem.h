@@ -9,6 +9,7 @@
 class BakeryItem{
 public:
     BakeryItem(std::string name);
+    virtual ~BakeryItem();
 
     std::string getName();
     virtual double getPrice() = 0;

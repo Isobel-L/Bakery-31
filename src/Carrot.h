@@ -11,5 +11,4 @@ public:
     virtual double getPrice();
 };
 
-
 #endif // CARROT_H

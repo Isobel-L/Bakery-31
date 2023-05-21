@@ -2,8 +2,8 @@
 #include <iostream>
 
 Order::Order(Customer* customer, BakeryItem* item) :
-    m_item(item),
-    m_customer(customer)
+    m_customer(customer),
+    m_item(item)
 {
 }
 

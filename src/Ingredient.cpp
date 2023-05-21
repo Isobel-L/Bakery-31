@@ -7,6 +7,11 @@ Ingredient :: Ingredient(std::string name, int quantity) :
 {
 }
 
+Ingredient::~Ingredient()
+{
+
+}
+
 std::string Ingredient::getName()
 {
     return m_name;
