@@ -3,6 +3,7 @@
 #include "Yeast.h"
 #include "Egg.h"
 
+//Bread constructor
 Bread::Bread() :
     BakeryItem("Bread"),
     m_ingredients()
@@ -12,6 +13,8 @@ Bread::Bread() :
     m_ingredients.push_back(new Egg(1));
 }
 
+
+//Bread destructor
 Bread::~Bread()
 {
     for (auto* ingredient : m_ingredients) {
@@ -19,11 +22,13 @@ Bread::~Bread()
     }
 }
 
+//returns price of bread
 double Bread::getPrice()
 {
     return 5.0;
 }
 
+//returns vector of ingredients in Bread
 std::vector<Ingredient*> Bread::getIngredients()
 {
     return m_ingredients;
