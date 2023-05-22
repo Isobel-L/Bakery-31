@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <algorithm>
 #include "Game.h"
 #include "HighScores.h"
 #include "Bakery.h"
@@ -9,6 +10,67 @@
 #include "CarrotCake.h"
 #include "ChocolateCake.h"
 #include "Order.h"
+
+// Read a quantity that the player inputs 
+int inputQuantity()
+{
+    std::string quantityString;
+    int quantity;
+    for (int i = 0; i < 5; i++) {
+        try {
+            std::cin >> std::ws;
+            std::getline(std::cin, quantityString);
+
+            quantity = std::stoi(quantityString);
+
+            if (quantity < 0) {
+                std::cout << "Please enter a non-negative quantity\n";
+                continue;
+            }
+
+            return quantity;
+        }
+        catch (const std::exception &exc)
+        {
+            if (i == 3) {
+                std::cout << "Oh, come on ...\n";
+            }
+            std::cout << "Please enter a proper quantity\n";
+        }
+    }
+    
+    std::cout << "OK, that's enough. I'll assume you mean zero\n";
+    return 0;
+}
+
+// Read a yes/no answer that the player inputs
+// Returns true if the player inputs yes, false if the player inputs no
+bool inputYesNo()
+{
+    std::string answer;
+    for (int i = 0; i < 5; i++) {
+        std::cin >> std::ws;
+        std::getline(std::cin, answer);
+
+        // We don't care about the case of the answer, so we convert it to lower case
+        std::transform(answer.begin(), answer.end(), answer.begin(), tolower);
+        if ((answer == "y") or (answer == "yes")) {
+            return true;
+        }
+        else if ((answer == "n") or (answer == "no")) {
+            return false;
+        }
+        else {
+            if (i == 3) {
+                std::cout << "Oh, come on ...\n";
+            }
+            std::cout << "Please just answer y or n\n";
+        }
+    }
+    
+    std::cout << "OK, that's enough. I'll assume you mean yes\n";
+    return true;
+}
 
 Game::Game()
 {
@@ -31,28 +93,22 @@ void Game::run()
     std::cout << "\n";
 
     std::cout << "How many bags of flour would you like to buy? 50 cents a bag.\n";
-    int flourQuantity;
-    std::cin >> flourQuantity;
+    int flourQuantity = inputQuantity();
 
     std::cout << "How many eggs would you like to buy? 1 dollar an egg.\n";
-    int eggQuantity;
-    std::cin >> eggQuantity;
+    int eggQuantity = inputQuantity();
 
     std::cout << "How many bags of sugar would you like to buy? 75 cents a bag.\n";
-    int sugarQuantity;
-    std::cin >> sugarQuantity;
+    int sugarQuantity = inputQuantity();
 
     std::cout << "How much yeast would you like to buy? 2 dollars a packet.\n";
-    int yeastQuantity;
-    std::cin >> yeastQuantity;
+    int yeastQuantity = inputQuantity();
 
     std::cout << "How many carrots would you like to buy? 2 dollars a carrot.\n";
-    int carrotQuantity;
-    std::cin >> carrotQuantity;
+    int carrotQuantity = inputQuantity();
 
     std::cout << "How much chocolate would you like to buy? 3 dollars a bar.\n";
-    int chocolateQuantity;
-    std::cin >> chocolateQuantity;
+    int chocolateQuantity = inputQuantity();
 
     std::cout << "\n";
     std::cout << "Well done! Here is your inventory:\n";
@@ -102,9 +158,7 @@ void Game::run()
         std::cout << "The customer orders " << item->getName() << "\n";
         std::cout << "Do you want to turn this customer away? (y/n)\n";
 
-        std::string answer;
-        std::cin >> answer;
-        if ((answer == "Y") or (answer == "y")) {
+        if (inputYesNo()) {
             std::cout << "OK ... that's your choice\n";
             continue;
         }

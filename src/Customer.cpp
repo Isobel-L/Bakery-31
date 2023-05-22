@@ -25,7 +25,7 @@ Customer::Customer() :
 
 bool Customer::isBirthday()
 {
-    return m_isBirthday;;
+    return m_isBirthday;
 }
 
 bool Customer::willTip()
